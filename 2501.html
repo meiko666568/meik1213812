@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aaa浙江最帅 </title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        /* 顶部导航栏 */
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .user-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .search-bar input {
+            padding: 8px;
+            border-radius: 4px;
+            border: none;
+            width: 200px;
+        }
+        
+        /* 导航菜单 */
+        .nav {
+            background-color: #34495e;
+            width: 100%;
+            position: sticky;
+            top: 50px;
+            z-index: 999;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+        }
+        
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-item.active {
+            background-color: #3498db;
+        }
+        
+        /* 下拉菜单 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #34495e;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #2c3e50;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* 主要内容区 */
+        .main-content {
+            margin-top: 100px;
+            max-width: 1200px;
+            margin: 90px auto 20px;
+            padding: 20px;
+        }
+        
+        /* 页面样式 */
+        .page {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="header">
+        <div class="header-content">
+            <div class="user-name">aaa浙江最帅</div>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索...">
+            </div>
+        </div>
+    </div>
+    
+    <!-- 导航菜单 -->
+    <div class="nav">
+        <div class="nav-container">
+            <a href="subjects.html" class="nav-item" id="subjects-link">学科</a>
+            
+            <div class="dropdown">
+                <div class="nav-item" id="ranking-link">排名</div>
+                <div class="dropdown-content">
+                    <a href="personal-ranking.html">个人排名</a>
+                    <a href="college-ranking.html">学院排名</a>
+                </div>
+            </div>
+            
+            <a href="events.html" class="nav-item" id="events-link">赛事</a>
+            
+            <div class="dropdown">
+                <div class="nav-item" id="data-link">数据</div>
+                <div class="dropdown-content">
+                    <a href="student-data.html">学生数据</a>
+                    <a href="college-data.html">学院数据</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 主要内容区 -->
+    <div class="main-content" id="content">
+        <!-- 这里将通过JavaScript动态加载页面内容 -->
+        <div class="page">
+            <h1 class="page-title">欢迎来到学术平台</h1>
+            <p>请选择上方导航栏查看具体内容。</p>
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>&copy; 2023 学术平台. All rights reserved.</p>
+    </div>
+    
+    <script>
+        // 当页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 默认显示首页
+            const content = document.getElementById('content');
+            
+            // 导航项点击事件
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    const isActive = Array.from(navItems).some(navItem => navItem.classList.contains('active'));
+                    navItems.forEach(navItem => navItem.classList.remove('active'));
+                    if (e.target.classList.contains('dropdown') || e.target.classList.contains('dropdown-content')) {
+                        return;
+                    }
+                    e.target.classList.add('active');
+                });
+            });
+            
+            // 初始化默认激活第一个导航项
+            document.getElementById('subjects-link').classList.add('active');
+        });
+    </script>
+</body>
+</html>
